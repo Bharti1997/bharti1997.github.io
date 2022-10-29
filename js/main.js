@@ -43,6 +43,18 @@
         $('#videoModal').on('hide.bs.modal', function (e) {
             $("#video").attr('src', $videoSrc);
         })
+        
+        // Portfolio isotope and filter
+        var portfolioIsotope = $('.portfolio-container').isotope({
+            itemSelector: '.portfolio-item',
+            layoutMode: 'fitRows'
+        });
+        $('#portfolio-flters li').on('click', function () {
+            $("#portfolio-flters li").removeClass('active');
+            $(this).addClass('active');
+    
+            portfolioIsotope.isotope({filter: $(this).data('filter')});
+        });
     });
 
 
@@ -53,21 +65,7 @@
         } else {
             $('.scroll-to-bottom').fadeIn('slow');
         }
-    });
-
-
-    // Portfolio isotope and filter
-    var portfolioIsotope = $('.portfolio-container').isotope({
-        itemSelector: '.portfolio-item',
-        layoutMode: 'fitRows'
-    });
-    $('#portfolio-flters li').on('click', function () {
-        $("#portfolio-flters li").removeClass('active');
-        $(this).addClass('active');
-
-        portfolioIsotope.isotope({filter: $(this).data('filter')});
-    });
-    
+    });    
     
     // Back to top button
     $(window).scroll(function () {
@@ -111,6 +109,10 @@
                 items:5
             }
         }
+    });
+
+    $('.portfolio-container').imagesLoaded(function(){
+        $('.portfolio-container').isotope('reloadItems');
     });
     
 })(jQuery);
