@@ -43,7 +43,7 @@
         $('#videoModal').on('hide.bs.modal', function (e) {
             $("#video").attr('src', $videoSrc);
         })
-        
+
         // Portfolio isotope and filter
         var portfolioIsotope = $('.portfolio-container').isotope({
             itemSelector: '.portfolio-item',
@@ -54,6 +54,10 @@
             $(this).addClass('active');
     
             portfolioIsotope.isotope({filter: $(this).data('filter')});
+        });
+
+        $('.portfolio-container').imagesLoaded(function(){
+            $('.portfolio-container').isotope('reloadItems');
         });
     });
 
@@ -109,10 +113,6 @@
                 items:5
             }
         }
-    });
-
-    $('.portfolio-container').imagesLoaded(function(){
-        $('.portfolio-container').isotope('reloadItems');
     });
     
 })(jQuery);
