@@ -9762,3 +9762,37 @@ a.text-dark:hover, a.text-dark:focus {
     border-right: none !important;
   }
 }
+
+.story-img {
+  width: 100% !important;
+}
+
+@media screen and (min-width: 380px) {
+  .story-img {
+      width: 85% !important;
+  }
+}
+
+@media screen and (min-width: 460px) {
+  .story-img {
+      width: 70% !important;
+  }
+}
+
+@media screen and (min-width: 550px) {
+  .story-img {
+      width: 60% !important;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .story-img {
+      width: 70% !important;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .story-img {
+      width: 50% !important;
+  }
+}
